@@ -1,3 +1,13 @@
+## Source data URL
+fileURL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+
+## Check if source data already exists else download
+if(!file.exists("./data")){ dir.create("./data") }
+if(!file.exists("./data/exdata_data_household_power_consumption.zip")){ download.file(fileURL,"./data/exdata_data_household_power_consumption.zip") }
+
+## Change WD to ./data
+setwd("./data")
+
 ## Getting complete dataset
 data_orig <- read.csv("household_power_consumption.txt", header=T, sep=';', na.strings="?", 
                       nrows=2075259, check.names=F, stringsAsFactors=F, comment.char="", quote='\"')
